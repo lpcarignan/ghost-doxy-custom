@@ -1,0 +1,35 @@
+{{#if background}}
+<style>
+   .bg-cover2 {
+   background-image: url({{ img_url background size='xl'}});
+   }
+   @media(max-width: 1000px) {
+   .bg-cover2 {
+   background-image: url({{img_url background size='l'}});
+   }
+   }
+   @media(max-width: 600px) {
+   .bg-cover2 {
+   background-image: url({{img_url background size='m'}});
+   }
+   }
+</style>
+<section class="slider-area bg-cover2">
+{{else}}
+<section class="slider-area bg-color2">
+   {{/if}}  
+   <div class="slider-wrapper full-padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-9">
+               <div class="slider-carousel-off">
+                  <div class="slider-content wow fadeIn" data-wow-duration="3s">
+                     <h1 class="heading-1"> {{@site.title}}</h1>
+                     <p><a href="#explore-topic" class="btn-style3 btn wow fadeInDown" data-wow-duration="500ms">Explore Topics</a></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

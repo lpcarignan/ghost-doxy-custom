@@ -1,0 +1,28 @@
+{{!< default}}
+{{> "header"}}
+{{> page-title background=feature_image}}
+<section id="explore-topic" class="topics-area bg-color1">
+   <div class="topics-wrapper section-spacing">
+      <div class="container">
+         <div class="topics-service-area">
+            {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+            {{#foreach tags}}				
+            <article class="{{post_class}} topics-service bg-color3 wow fadeIn" data-wow-duration="3s">
+               <header class="topics-title">
+                  <h4 class="heading-4"><a href="{{url}}">{{name}}</a></h4>
+               </header>
+               <ul class="topics-list list-inline">
+                  {{#get "posts" limit="5" filter="tags:[{{slug}}]+id:-{{id}}" include="tags"}}
+                  {{#foreach posts}}
+                  <li><a href="{{url}}"> {{title}}</a></li>
+                  {{/foreach}}
+               </ul>
+               {{/get}}	
+               <a href="{{url}}" class="see-all-topics">{{plural count.posts empty=(t "No topics") singular=(t "View all % topic") plural=(t "View all % topics")}}</a>	 
+            </article>
+            {{/foreach}}
+            {{/get}}
+         </div>
+      </div>
+   </div>
+</section>

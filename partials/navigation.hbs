@@ -1,0 +1,33 @@
+<ul id="navigation-menu" class="slimmenu">         
+ <li>
+	<a href="{{@site.url}}">Home</a>
+ </li>
+ <li>
+	<a href="/training/">Training</a>
+	<ul>
+	   <li><a href="/testimonials/">Testimonials</a></li>
+	</ul>
+ </li>
+ {{#foreach navigation}}
+ <li class="{{#if current}} active {{/if}}"><a href="{{url}}">{{label}}</a></li>
+ {{/foreach}} 
+ {{#if @labs.members}}
+    {{#if @member}}
+          <li>   <a class="account-link" href="/account/">Account</a>		  
+		  <ul>
+		    <li>   <a class="button small header-cta signout-link" href="#signout" data-members-signout>Log out</a></li>
+		  </ul>
+		  </li>
+        
+        {{else}}
+          <li>   <a class="button primary small" href="/signup/">Subscribe</a></li>
+        {{/if}}
+        {{/if}}
+ {{#is "home"}}
+ {{else}}
+ <li><a class="nav-search" data-toggle="modal" data-target="#searchmodal"><img src="{{asset "images/search-logo.png"}}" alt="nav search" /></a></li>
+ {{/is}}
+ 
+
+ 
+</ul>

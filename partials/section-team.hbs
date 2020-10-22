@@ -1,0 +1,42 @@
+<section class="team-area bg-color1">
+   <div class="team-wrapper pt-0 section-spacing bminus-30">
+      <div class="container">
+         <div class="section-title wow fadeInUp" data-wow-duration="2s">
+            <h2 class="heading-2"> Our Teams</h2>
+            <p>Vulputate odio ut enim blandit volutpat maecenas volutpat blandit </p>
+         </div>
+         <div class="row">
+            {{#get "authors" limit="6" include="count.posts" order='count.posts desc'}}
+            {{#foreach authors}}
+            <div class="col-md-6 col-lg-4">
+               <div class="team-style">
+                  {{#if profile_image}}
+                  <div class="team-img"><img src="{{img_url profile_image}}" alt="team img"></div>
+                  {{else}}
+                  <div class="team-color"> </div>
+                  {{/if}}
+                  <div class="team-content">
+                     <div class="team-title">
+                        <h4 class="heading-4"> <a href="{{url}}">{{name}}</a> </h4>
+                        <p>{{plural count.posts empty=(t "No posts") singular=(t "Total % post") plural=(t "Total % posts")}}</p>
+                     </div>
+                     <ul class="team-socials list-inline">
+                        {{#if facebook}}
+                        <li class="list-inline-item"><a href="{{facebook_url}}"><i class="fa fa-facebook"></i></a></li>
+                        {{/if}}
+                        {{#if twitter}}
+                        <li class="list-inline-item"><a href="{{twitter_url}}"><i class="fa fa-twitter"></i></a></li>
+                        {{/if}}
+                        {{#if website}}
+                        <li class="list-inline-item"><a href="{{website}}"><i class="fa fa-link"></i></a></li>
+                        {{/if}}
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            {{/foreach}}
+            {{/get}}           
+         </div>
+      </div>
+   </div>
+</section>

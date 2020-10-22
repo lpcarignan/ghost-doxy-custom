@@ -1,0 +1,55 @@
+{{#if background}}
+<style>
+   .bg-cover2 {
+      background-image: url({{ img_url background size='xl'}});
+   }
+
+   @media(max-width: 1000px) {
+      .bg-cover2 {
+         background-image: url({{img_url background size='l'}});
+      }
+   }
+
+   @media(max-width: 600px) {
+      .bg-cover2 {
+         background-image: url({{img_url background size='m'}});
+      }
+   }
+</style>
+<section class="slider-area bg-cover2">
+   {{else}}
+   <section class="slider-area bg-color2">
+      {{/if}}
+      <div class="slider-wrapper full-padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8">
+                  <div class="slider-carousel owl-carousel">
+                     {{#get "posts" filter="featured:true" limit="3" include="authors,tags"}}
+                     {{#foreach posts}}
+                     <div class="slider-content wow fadeIn" data-wow-duration="3s">
+                        <h1 class="heading-1"> {{title}}</h1>
+                        <p><a href="{{url}}" class="btn-style3 btn wow fadeInDown"
+                              data-wow-duration="500ms">{{t "Read More"}}</a></p>
+                     </div>
+                     {{/foreach}}
+                     {{/get}}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+   <div class="banner-slider owl-carousel clearfix">
+      {{#get "posts" filter="featured:true" limit="10" include="authors,tags"}}
+      {{#foreach posts}}
+      <div class="item">
+         <div class="row post-style1 featured-post">
+            {{> "post_loop"}}
+         </div>
+      </div>
+      {{/foreach}}
+      {{/get}}
+   </div>

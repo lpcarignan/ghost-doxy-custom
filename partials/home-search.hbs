@@ -1,0 +1,32 @@
+{{#if background}}
+<style>
+   .bg-cover2 {
+   background-image: url({{ img_url background size='xl'}});
+   }
+   @media(max-width: 1000px) {
+   .bg-cover2 {
+   background-image: url({{img_url background size='l'}});
+   }
+   }
+   @media(max-width: 600px) {
+   .bg-cover2 {
+   background-image: url({{img_url background size='m'}});
+   }
+   }
+</style>
+<section class="slider-area bg-cover2">
+{{else}}
+<section class="slider-area bg-color2">
+   {{/if}}      
+   <div class="slider-wrapper section-spacing">
+      <div class="container">
+         <div class="row justify-content-md-center">
+            <div class="col-md-8">
+               <div class="slider-content text-center wow fadeInUp" data-wow-duration="0s">
+                  <h2 class="heading-1">Leverage Kanban metrics within your Scrum teams</h2>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

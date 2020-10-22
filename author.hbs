@@ -1,0 +1,22 @@
+{{!< default}}
+{{> "header"}}
+{{> "page-title"}}
+<section class="post-list-area bg-color1">
+   <div class="post-list-wrapper section-spacing bminus-30 tminus-30">
+      <div class="container">
+         <div class="row">
+            {{#foreach posts}}
+            <div class="col-md-6">
+              <div class="post-list-contentainer bg-color3 py-4 px-4">
+                  <div class="post-list-content">
+                     <h4 class="heading-4"><a href="{{url}}">{{title}}</a></h4>
+                     <p class="mb-0">{{excerpt words="20"}}</p>
+                     <a href="{{../url}}" class="topics-read-more"> {{t "Read more"}}</a>
+                  </div>
+               </div>
+            </div>
+            {{/foreach}}
+         </div>
+      </div>
+   </div>
+</section>

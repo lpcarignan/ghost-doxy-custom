@@ -1,0 +1,110 @@
+{{!< default}}
+{{> "header"}}
+{{#post}}
+{{> page-title background=feature_image}}
+<section class="layout-area bg-color1">
+   <div class="layout-wrapper section-spacing">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-10 mx-auto">
+               <div class="doc-post-header bg-color3">
+                  <div class="row">
+                     <div class="col-md-9 col-lg-10">
+                        <nav  class="layout-breadcrumb">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="{{@site.url}}">{{t "Home"}}</a></li>
+                              {{#primary_tag}}
+                              <li class="breadcrumb-item"><a href="{{url}}">{{name}}</a></li>
+                              {{/primary_tag}}
+                              <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+                           </ol>
+                        </nav>
+                     </div>
+                     <div class="col-md-3  col-lg-2">
+                        <nav  class="layout-share-print">
+                           <ul class="single-share list-inline ">
+                              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i></a></li>
+                              <li class="list-inline-item"><a target="_blank" href="http://twitter.com/share?text={{encode title}}&amp;url={{url absolute='true'}}" ><i class="fa fa-twitter"></i></a></li>
+                              <li class="list-inline-item"><a target="_blank" href="https://pinterest.com/pin/create/button/?{{url absolute="true"}}{{#if feature_image}}&media={{feature_image}}{{/if}}&description={{excerpt words="20"}}"><i class="fa fa-pinterest"></i></a></li>
+                              <li class="list-inline-item"><a href="#" class="print-link print_no "><i class="fa fa-print"></i></a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-10 mx-auto">
+			
+			 {{#if access}}
+			
+               <div class="single-content entry-content">			   
+                  {{content}}
+               </div>
+               <div class="docs-footer">
+                  <span class="text-right modifies-date "> (Last Modified Date : <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at format="DD MMMM YYYY"}}</time>)</span>
+               </div>
+               {{#primary_author}}
+               <div class="single-admin  {{#if profile_image}}has-pic{{else}}no-admin-pic{{/if}}">
+                  {{#if profile_image}}
+                  <div class="admin-avatar">
+                     <img src="{{profile_image}}" alt="{{name}}">
+                  </div>
+                  {{/if}}	   
+                  <div class="admin-comment">
+                     {{#if bio}}
+                     <p> {{bio}}</p>
+                     {{/if}}	
+                     <h4 class="heading-4"><a href="{{url}}"><strong>{{name}}</strong></a></h4>
+                     {{#if location}}
+                     <h6 class="heading-6">{{location}}</h6>
+                     {{/if}}
+                  </div>
+               </div>
+               {{/primary_author}}
+               <nav class="page-pagination">
+                  <ul class="pagination d-flex justify-content-between themeix-highlight">
+                     {{#prev_post}}
+                     <li class="page-item themeix-highlight">
+                        <a class="page-link next-btn" href="{{url}}"><i class="fa fa-angle-double-left"></i> {{title}}</a>
+                     </li>
+                     {{/prev_post}}
+                     {{#next_post}}
+                     <li class="page-item themeix-highlight">
+                        <a class="page-link prev-btn" href="{{url}}">{{title}} <i class="fa fa-angle-double-right"></i></a>
+                     </li>
+                     {{/next_post}}
+                  </ul>
+               </nav>
+               <div class="contact-form">
+                  {{> "disqus_comments"}}
+               </div>
+			   
+			   
+			    {{else}}
+			    <div class="single-content entry-content">		
+                    <aside class="post-upgrade-cta w-100">
+                        <div class="post-upgrade-cta-content w-100">
+                            {{#if @member}}
+                            <h2>This post is for paying subscribers only</h2>
+							<p>You don't have access to this post on <strong>{{@site.title}}</strong> at the moment, but if you upgrade your account you'll be able to see the whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you immediate access.</p>
+                            {{else}}
+                            <h2>This post is for subscribers only</h2>
+							<p>You don't have access to this post on <strong>{{@site.title}}</strong> at the moment, but if you upgrade your account you'll be able to see the whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you immediate access.</p>
+                            {{/if}}
+                            <a class="button large primary" href="/signup/">Subscribe now</a>
+                            <p><small>Already have an account? <a href="/signin/">Sign in</a></small></p>
+                        </div>
+                    </aside>
+           			 </div> 
+				{{/if}}	 
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{{/post}}
+
+
+

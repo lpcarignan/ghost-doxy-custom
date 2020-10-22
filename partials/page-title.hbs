@@ -1,0 +1,54 @@
+{{#if background}}
+<style>
+   .bg-cover2 {
+   background-image: url({{ img_url background size='xl'}});
+   }
+   @media(max-width: 1000px) {
+   .bg-cover2 {
+   background-image: url({{img_url background size='l'}});
+   }
+   }
+   @media(max-width: 600px) {
+   .bg-cover2 {
+   background-image: url({{img_url background size='m'}});
+   }
+   }
+</style>
+<section class="slider-area bg-cover2">
+{{else}}
+<section class="slider-area bg-cover-alternate">
+   {{/if}}    
+   <div class="page-title-wrapper section-spacing container">
+      <div class="page-title text-center white-text">
+         {{#is "post"}}  
+         <h1 class="heading-1 mx-auto">{{title}}</h1>
+         <h4 class="heading-4 mx-auto">{{excerpt}}</h4>
+         {{/is}}  
+         {{#is "page"}}  
+         {{#post}}
+         <h1 class="heading-1 mx-auto">{{title}}</h1>
+         <h4 class="heading-4 mx-auto">{{excerpt}}</h4>
+         {{/post}}
+         {{/is}}  
+         {{#is "tag"}} 
+         {{#tag}}
+         <h1 class="heading-1 mx-auto">{{name}}</h1>
+         <p class="mx-auto">{{#if description}}
+            {{description}}
+            {{else}}
+            {{t "A collection of"}} {{plural ../pagination.total empty=(t "No articles") singular=(t "1 article") plural=(t "% articles")}}
+            {{/if}}
+         </p>
+         {{/tag}}
+         {{/is}}    
+         {{#is "author"}}
+         {{#primary_author}}
+         <h1 class="heading-1 mx-auto">{{name}}</h1>
+         <p class="mx-auto">
+              {{t "A collection of"}} {{plural ../pagination.total empty=(t "No articles") singular=(t "1 article") plural=(t "% articles")}}          
+         </p>
+         {{/primary_author}}
+         {{/is}}
+      </div>
+   </div>
+</section>
