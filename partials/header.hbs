@@ -4,29 +4,31 @@
          <div class="navigation-box">
             <div class="navigation-left">
                <a href="{{@site.url}}" class="header-logo">
-               {{#if @site.logo}}
-               <img src="{{@site.logo}}" alt="{{@site.title}}" />
-               {{else}}
-               <img src="{{asset 'images/header-logo.png'}}" alt="{{@site.title}}" />
-               {{/if}}
+                  {{#if @site.logo}}
+                  <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                  {{else}}
+                  <img src="{{asset 'images/header-logo.png'}}" alt="{{@site.title}}" />
+                  {{/if}}
                </a>
             </div>
             <div class="navigation-right">
                <nav class="navigation-navbar">
-			   {{navigation}}                 
+                  {{navigation}}
                </nav>
             </div>
-            <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog"  aria-hidden="true">
+            {{#is "home"}}
+            {{else}}
+            <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog" aria-hidden="true">
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">×</span>
+                  <span aria-hidden="true">×</span>
                </button>
                <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content">
                      <div class="modal-body">
-					    <form action="#" class="modal-search-form" id="gh-search-input" method="get" target="_top">                 
+                        <form action="#" class="modal-search-form" id="gh-search-input" method="get" target="_top">
                            <div class="input-group">
-						     <input type="text" id="gh-search-text" name="q" class="form-control search-input"
-                     placeholder="{{t "Type your keywords..."}}">                              
+                              <input type="text" id="ghost-search-field" name="q" class="form-control search-input"
+                                 placeholder="{{t "Type your keywords..."}}">
                            </div>
                         </form>
                         <div id="gh-search-results" class="search-results"></div>
@@ -34,6 +36,7 @@
                   </div>
                </div>
             </div>
+            {{/is}}
          </div>
       </div>
    </div>
