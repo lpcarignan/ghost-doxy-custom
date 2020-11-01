@@ -23,7 +23,7 @@
 	
     ];
     var JS_Files = [
-     './assets/js/jquery-3.4.1.min.js',
+     './assets/js/jquery.min.js',
      './assets/js/jquery.slimmenu.min.js',
      './assets/js/popper.min.js',
      './assets/js/bootstrap.min.js',

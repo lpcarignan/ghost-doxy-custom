@@ -102,7 +102,14 @@ var ghosthunter_key = themeConfig.ghostSearchKey;
   }
 
 
-
+  $('.print-link').on("click", function () {
+    $('.entry-content').printThis({
+      importCSS: true,
+      importStyle: true,
+      loadCSS: "/assets/css/print.css", // path to additional css file - use an array [] for multiple
+      printContainer: true
+    });
+  });
 
   // ================================
   // Search
@@ -120,7 +127,6 @@ var ghosthunter_key = themeConfig.ghostSearchKey;
 
   var searchField = $('#ghost-search-field').ghostHunter({
     results: '#gh-search-results',
-    info_template: "<p>Posts found: {{amount}}</p>",
     onKeyUp: true,
     displaySearchInfo: false,
     zeroResultsInfo: true,
@@ -130,23 +136,5 @@ var ghosthunter_key = themeConfig.ghostSearchKey;
       $('#gh-search-results').fadeIn();
     }
   });
-
-  $(document).keyup(function (e) {
-    if (e.keyCode === 27) {
-      searchField.clear();
-      $('.search-input').val('').blur();
-      $('.search-results').fadeOut();
-    }
-  });
-
-  $('.print-link').on("click", function () {
-    $('.entry-content').printThis({
-      importCSS: true,
-      importStyle: true,
-      loadCSS: "/assets/css/print.css", // path to additional css file - use an array [] for multiple
-      printContainer: true
-    });
-  });
-
 
 })(jQuery);
