@@ -3229,8 +3229,7 @@ lunr.QueryParser.parseBoost = function (parser) {
 		// console.log('ghostHunter: grabAndIndex');
 		this.blogData = {};
 		this.latestPost = 0;
-		var ghost_root = ghost_root_url || "/ghost/api/v2";
-            	var url = ghost_root + "/content/posts/?key=" + ghosthunter_key + "&limit=all&include=tags";
+    var url = "/ghost/api/v2/content/posts/?key=" + ghosthunter_key + "&limit=all&include=tags";
 
 		var params = {
 			limit: "all",
@@ -3245,7 +3244,7 @@ lunr.QueryParser.parseBoost = function (parser) {
 		var me = this;
     $.get(url).done(function(data){
 			var idxSrc = data.posts;
-			// console.log("ghostHunter: indexing all posts")
+			//  console.log("ghostHunter: indexing all posts")
 			me.index = lunr(function () {
 				this.ref('id');
 				this.field('title');
@@ -3274,10 +3273,15 @@ lunr.QueryParser.parseBoost = function (parser) {
 					var parsedData 	= {
 						id 			: String(arrayItem.id),
 						title 		: String(arrayItem.title),
-						description	: String(arrayItem.custom_excerpt),
+						description	: String(arrayItem.excerpt),
 						pubDate 	: String(arrayItem.published_at),
 						tag 		: category
 					}
+					
+					
+					
+					
+
 					if  ( me.includebodysearch ){
 						parsedData.plaintext=String(arrayItem.plaintext);
 					}
@@ -3285,7 +3289,7 @@ lunr.QueryParser.parseBoost = function (parser) {
 					var localUrl = me.subpath + arrayItem.url
 					me.blogData[arrayItem.id] = {
 						title: arrayItem.title,
-						description: arrayItem.custom_excerpt,
+						description: arrayItem.excerpt,
 						pubDate: prettyDate(parsedData.pubDate),
 						link: localUrl,
 						tags: tag_arr
@@ -3387,8 +3391,8 @@ lunr.QueryParser.parseBoost = function (parser) {
 					filter: "updated_at:>\'" + this.latestPost.replace(/\..*/, "").replace(/T/, " ") + "\'",
 					fields: "id"
 				};
-	var ghost_root = ghost_root_url || "/ghost/api/v2";
-        var url = ghost_root + "/content/posts/?key=" + ghosthunter_key + "&limit=all&fields=id" + "&filter=" + "updated_at:>\'" + this.latestPost.replace(/\..*/, "").replace(/T/, " ") + "\'";
+
+        var url = "/ghost/api/v2/content/posts/?key=" + ghosthunter_key + "&limit=all&fields=id" + "&filter" + "updated_at:>\'" + this.latestPost.replace(/\..*/, "").replace(/T/, " ") + "\'";
 
 				var me = this;
         $.get(url).done(function(data){
