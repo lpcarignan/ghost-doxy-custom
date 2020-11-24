@@ -91,12 +91,13 @@ img {
   height: auto; }
 
 a {
-  color: #404040;
+  color: #0C51A3;
   -webkit-transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -ms-transform: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   text-decoration: none !important; }
   a:hover {
+    text-decoration: underline !important;
     color: #0C51A3; }
 
 ul li, ol li {

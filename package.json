@@ -1,6 +1,6 @@
 {
   "name": "doxy-ghost",
-  "version": "3.2.0",
+  "version": "3.2.2",
   "description": "Ghost Documentation Theme",
   "demo": "https://ghost-doxy.themeix.com/",
   "engines": {
