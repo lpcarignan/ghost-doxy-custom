@@ -7,6 +7,10 @@ collections:
   /:
     permalink: /{slug}/
     template: index
+  /tutorials/:
+    permalink: /tutorials/{slug}/
+    template: index
+    filter: primary_tag:tutorials
 
 taxonomies:
   tag: /tag/{slug}/
