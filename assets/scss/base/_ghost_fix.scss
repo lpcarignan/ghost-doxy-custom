@@ -391,39 +391,39 @@ Usage (In Ghost editor):
     margin: 0.5em 0 2.5em;
     max-width: 100%;
     width: auto;
-    border-spacing: 0;
+    border-spacing: 1px;
+    border: 1px solid black;
     border-collapse: collapse;
-  
-    font-size: 1.6rem;
-    white-space: nowrap;
+    border-width: 3px;  
     vertical-align: top;
 }
 
-.entry-content table {
-    -webkit-overflow-scrolling: touch;
-    background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
-    background-attachment: scroll, scroll;
-    background-size: 10px 100%, 10px 100%;
-    background-repeat: no-repeat;
-}
+// .entry-content table {
+//     -webkit-overflow-scrolling: touch;
+//     background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+//     background-attachment: scroll, scroll;
+//     background-size: 10px 100%, 10px 100%;
+//     background-repeat: no-repeat;
+//}
 
-.entry-content table td:first-child {
-    background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
-}
+// .entry-content table td:first-child {
+//     background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+//     background-size: 20px 100%;
+//     background-repeat: no-repeat;
+// }
 
-.entry-content table td:last-child {
-    background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
-    background-position: 100% 0;
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
-}
+// .entry-content table td:last-child {
+//     background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+//     background-position: 100% 0;
+//     background-size: 20px 100%;
+//     background-repeat: no-repeat;
+// }
 
 .entry-content table th {
    
-    font-size: 1.2rem;
     font-weight: 700;
+    color: white;
+    background-color: $bg-color2;
     letter-spacing: 0.2px;
     text-align: left;
     text-transform: uppercase;
@@ -433,6 +433,7 @@ Usage (In Ghost editor):
 .entry-content table th,
 .entry-content table td {
     padding: 6px 12px;
+    border: 1px solid black;
  
 }
 
